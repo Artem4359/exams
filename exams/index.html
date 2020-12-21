@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="cars">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Cars</title>
+</head>
+
+<body>
+    <header>
+        <h1>Каталог автомобілів</h1>
+    </header>
+    <main>
+
+        <div class='itm-col-l' ng-controller='toBuyController as toBuyCntr'>
+            <h2>Автомобілі</h2>
+            <div ng-if="toBuyCntr.toBuyItems.length == 0">
+                there no cars in list
+            </div>
+            <div class='itm-lst'>
+                <div class="itm-elem">
+                    <div ng-repeat="item in toBuyCntr.toBuyItems">
+                        {{item.name}}
+                    </div>
+                </div>
+                <div class="itm-elem">
+                    <div ng-repeat="item in toBuyCntr.toBuyItems">
+                        {{item.amount}}
+                    </div>
+                </div>
+                <div class="itm-elem">
+                    <div ng-repeat="item in toBuyCntr.toBuyItems">
+                        <button ng-click="toBuyCntr.addToBought($index)">Delete</button>
+                        <button ng-click="toBuyCntr.ng-hide($index)">HIDE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+</body>
+
+</html>
